@@ -36,7 +36,7 @@ export const TaskCard = ({ task }: TaskCardProps) => {
       )}
     >
       <div className="flex justify-between items-start mb-2 gap-3">
-        <h3 className="font-semibold text-slate-800 dark:text-gray-100 break-words flex-1 text-sm md:text-[18px] leading-snug">
+        <h3 className="font-semibold text-slate-800 dark:text-gray-100 break-words flex-1 text-[15px] md:text-[18px] leading-snug">
           {task.title}
         </h3>
         <button

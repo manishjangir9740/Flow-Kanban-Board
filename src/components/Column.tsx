@@ -22,7 +22,7 @@ export const KanbanColumn = ({ column, tasks, onAddTask }: ColumnProps) => {
   return (
     <div
       className={clsx(
-        "glass-panel rounded-2xl md:w-80 w-80 flex-shrink-0 flex flex-col max-h-full transition-all duration-300",
+        "glass-panel rounded-2xl w-[calc(100vw-3rem)] md:w-80 flex-shrink-0 flex flex-col max-h-full transition-all duration-300",
         isOver && "ring-2 ring-indigo-400 dark:ring-[rgb(34,187,254)] bg-indigo-50/50 dark:bg-white/[0.05] scale-[1.02] shadow-indigo-100 dark:shadow-[0_0_30px_rgba(34,187,254,0.2)]"
       )}
     >

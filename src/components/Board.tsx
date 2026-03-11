@@ -69,14 +69,14 @@ export const KanbanBoard = () => {
   const tasksArray = Object.values(tasks);
 
   return (
-    <div className="h-[calc(100vh-8rem)] flex overflow-x-auto pb-4 custom-scrollbar">
+    <div className="h-full flex overflow-x-auto pb-4 custom-scrollbar">
       <DndContext
         sensors={sensors}
         collisionDetection={closestCorners}
         onDragStart={handleDragStart}
         onDragEnd={handleDragEnd}
       >
-        <div className="flex gap-6 h-full px-4 md:px-0 justify-center min-w-full">
+        <div className="flex gap-4 md:gap-6 h-full px-2 md:px-0 justify-start md:justify-center min-w-full">
           {columns.map((column) => (
             <KanbanColumn
               key={column.id}

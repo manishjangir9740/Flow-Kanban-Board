@@ -1,6 +1,6 @@
 # Flow Kanban Board
 
-A simplified, fully functional, and beautifully designed Kanban-style task management board. Built to organize your tasks efficiently with an aesthetic UI, drag-and-drop mechanics, and reliable local data persistence.
+A simplified, fully functional Kanban-style task management board designed to help users organize and track tasks efficiently. The application features an intuitive and aesthetically pleasing user interface, smooth drag-and-drop interactions for task management, and reliable local data persistence to ensure tasks remain saved across sessions.
 
 ## Features
 

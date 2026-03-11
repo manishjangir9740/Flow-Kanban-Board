@@ -51,7 +51,43 @@ export const TableView = () => {
 
   return (
     <div className="flex-1 overflow-auto rounded-xl border border-slate-200/60 dark:border-white/10 bg-white dark:bg-[#15151a] shadow-xl custom-scrollbar">
-      <table className="w-full text-left border-collapse">
+      {/* Mobile View: Card List */}
+      <div className="md:hidden divide-y divide-slate-100 dark:divide-white/5">
+        {sortedTasks.map((task) => {
+          const status = getStatusDetails(task.status);
+          return (
+            <div key={task.id} className="p-4 flex flex-col gap-3">
+              <div className="flex justify-between items-start">
+                <div className="flex items-center gap-3">
+                  <div className={clsx("w-[3px] h-6 rounded-full", status.bgColor)} />
+                  <span className="font-bold text-slate-800 dark:text-slate-200">{task.title}</span>
+                </div>
+                <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
+                  {new Date(task.createdAt).toLocaleDateString('en-US', { month: 'short', day: '2-digit' })}
+                </span>
+              </div>
+              
+              <div className="flex gap-2">
+                <div className={clsx(
+                  "px-3 py-1 text-xs font-bold text-white rounded-lg shadow-sm",
+                  status.bgColor
+                )}>
+                  {status.label}
+                </div>
+                <div className={clsx(
+                  "px-3 py-1 text-xs font-bold rounded-lg shadow-sm border border-black/5",
+                  getPriorityStyle(task.priority)
+                )}>
+                  {task.priority || 'Medium'}
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Desktop View: Table */}
+      <table className="hidden md:table w-full text-left border-collapse">
         <thead className="sticky top-0 bg-slate-50/90 dark:bg-[#1f1f26]/90 backdrop-blur-md z-10 border-b border-slate-200 dark:border-white/10">
           <tr>
             <th className="py-4 px-6 font-semibold text-sm text-slate-500 dark:text-slate-400 w-1/2">Name</th>

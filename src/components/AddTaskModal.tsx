@@ -48,8 +48,8 @@ export const AddTaskModal = ({ isOpen, onClose }: AddTaskModalProps) => {
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="p-6">
-          <div className="space-y-5">
+        <form onSubmit={handleSubmit} className="p-5 md:p-6">
+          <div className="space-y-4 md:space-y-5">
             <div>
               <label htmlFor="title" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">
                 Task Title *
@@ -69,23 +69,25 @@ export const AddTaskModal = ({ isOpen, onClose }: AddTaskModalProps) => {
               {error && <p className="mt-2 text-sm font-medium text-red-500">{error}</p>}
             </div>
 
-            <div>
-              <label htmlFor="priority" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">
-                Priority
-              </label>
-              <div className="relative">
-                <select
-                  id="priority"
-                  value={priority}
-                  onChange={(e) => setPriority(e.target.value as Priority)}
-                  className="w-full px-4 py-2.5 appearance-none bg-white dark:bg-[#0c0c0e] border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white rounded-xl focus:ring-2 focus:ring-indigo-500 dark:focus:ring-[rgb(34,187,254)] focus:border-transparent transition-all outline-none shadow-sm dark:shadow-none font-medium"
-                >
-                  <option value="High">High 🔴</option>
-                  <option value="Medium">Medium 🟡</option>
-                  <option value="Low">Low 🔵</option>
-                </select>
-                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500 dark:text-gray-400">
-                  <ChevronDown size={16} />
+            <div className="flex flex-col md:flex-row gap-4">
+              <div className="flex-1">
+                <label htmlFor="priority" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5">
+                  Priority
+                </label>
+                <div className="relative">
+                  <select
+                    id="priority"
+                    value={priority}
+                    onChange={(e) => setPriority(e.target.value as Priority)}
+                    className="w-full px-4 py-2.5 appearance-none bg-white dark:bg-[#0c0c0e] border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white rounded-xl focus:ring-2 focus:ring-indigo-500 dark:focus:ring-[rgb(34,187,254)] focus:border-transparent transition-all outline-none shadow-sm dark:shadow-none font-medium"
+                  >
+                    <option value="High">High 🔴</option>
+                    <option value="Medium">Medium 🟡</option>
+                    <option value="Low">Low 🔵</option>
+                  </select>
+                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500 dark:text-gray-400">
+                    <ChevronDown size={16} />
+                  </div>
                 </div>
               </div>
             </div>
@@ -104,11 +106,11 @@ export const AddTaskModal = ({ isOpen, onClose }: AddTaskModalProps) => {
             </div>
           </div>
 
-          <div className="mt-8 flex justify-end items-center gap-4">
+          <div className="mt-6 md:mt-8 flex flex-col-reverse md:flex-row justify-end items-stretch md:items-center gap-3 md:gap-4">
             <button
               type="button"
               onClick={onClose}
-              className="px-5 py-2.5 text-sm font-semibold text-slate-500 hover:text-slate-800 dark:text-gray-300 hover:bg-slate-100 dark:hover:bg-white/10 dark:hover:text-white rounded-xl transition-colors"
+              className="px-5 py-2.5 text-sm font-semibold text-slate-500 hover:text-slate-800 dark:text-gray-300 hover:bg-slate-100 dark:hover:bg-white/10 dark:hover:text-white rounded-xl transition-colors text-center"
             >
               Cancel
             </button>
