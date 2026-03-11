@@ -1,73 +1,58 @@
-# React + TypeScript + Vite
+# Flow Kanban Board
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simplified, fully functional, and beautifully designed Kanban-style task management board. Built to organize your tasks efficiently with an aesthetic UI, drag-and-drop mechanics, and reliable local data persistence.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Intuitive Column Layout**: Fixed default columns (To Do, In Progress, Done).
+- **Smooth Drag-and-Drop**: Easily move tasks between columns with fluid animations, powered by `@dnd-kit`.
+- **Dual Views**: Seamlessly switch between a traditional "Board" view and a meticulously designed "Table" view.
+- **Task Priorities**: Categorize tasks by priority levels (`High`, `Medium`, `Low`) directly accessible while creating tasks, featuring fully styled badges.
+- **Data Persistence**: All your board state is automatically saved to the browser's `localStorage` ensuring your tasks remain precisely where you left them, even after a page refresh.
+- **Responsive & Dark Mode Supported**: Professionally optimized for various screens with a premium default dark mode providing maximum accessibility and a high-end feel.
+- **Performance Optimized State Management**: Implemented using `Zustand` leveraging an `O(1)` object map mapping internally, ensuring operations remain instantly responsive.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Framework**: [React 18+](https://react.dev/)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **State Management**: [Zustand](https://github.com/pmndrs/zustand)
+- **Drag & Drop**: [@dnd-kit](https://docs.dndkit.com/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
 
-## Expanding the ESLint configuration
+## How to Run the Project Locally
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 1. Prerequisites
+Ensure you have Node.js installed on your machine. You can download it from [the official Node.js website](https://nodejs.org/).
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 2. Installation
+Clone the repository, navigate into the project directory, and install the necessary dependencies:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+```bash
+# Clone the repository
+git clone https://github.com/manishjangir9740/Flow-Kanban-Board.git
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Navigate to the project directory
+cd Flow-Kanban-Board
+
+# Install the dependencies
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 3. Start the Development Server
+Once dependencies are successfully installed, boot up the local Vite development server:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+The application will typically be accessible at `http://localhost:5173/` in your browser.
+
+### 4. Build for Production
+To create a minimized, production-ready build, run:
+
+```bash
+npm run build
+```
+This will compile the TypeScript, bundle the site, and place the output into a `/dist` directory.
